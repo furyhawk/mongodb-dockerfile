@@ -1,14 +1,16 @@
 # MongoDB docker service
+1. rename file `.env.etc` to `.env`
 
-1. change the password in `.env` file
+2. change the password in `.env` file
 
-2. start the service
+3. start the service
 
 ```sh
 docker-compose up -d
 ```
 
 wait for it to initialize completely, and visit http://swarm-ip:8888, http://localhost:8888, or http://host-ip:8888 (as appropriate).
+
 
 # Container shell access and viewing MongoDB logs
 
