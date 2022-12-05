@@ -8,7 +8,7 @@
 docker-compose up -d
 ```
 
-wait for it to initialize completely, and visit http://swarm-ip:8081, http://localhost:8081, or http://host-ip:8081 (as appropriate).
+wait for it to initialize completely, and visit http://swarm-ip:8888, http://localhost:8888, or http://host-ip:8888 (as appropriate).
 
 # Container shell access and viewing MongoDB logs
 
