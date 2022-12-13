@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   mongo:
@@ -11,7 +11,9 @@ services:
     ports:
       - ${MONGODB_LOCAL_PORT}:${MONGODB_DOCKER_PORT}
     volumes:
-      - db:/data/db    
+      - ~/mongodb-dockerfile/config:/etc/mongo/
+      - db:/data/db
+    command: ["mongod", "--config", "/etc/mongo/mongod.conf"]
   mongo-express:
     image: mongo-express
     restart: unless-stopped
