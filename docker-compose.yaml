@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   mongo:
@@ -9,9 +9,9 @@ services:
       - MONGODB_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
       - MONGO_INITDB_DATABASE=${MONGODB_DATABASE}
     ports:
-      - ${MONGODB_LOCAL_PORT}:${MONGODB_DOCKER_PORT}
+      - 0.0.0.0:${MONGODB_LOCAL_PORT}:${MONGODB_DOCKER_PORT}
     volumes:
-      - ./config:/etc/mongo/
+      - ./config:/etc/mongo
       - db:/data/db
     command: ["mongod", "--config", "/etc/mongo/mongod.conf"]
   mongo-express:
@@ -27,7 +27,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - ${MONGOEXPRESS_LOCAL_PORT}:${MONGOEXPRESS_DOCKER_PORT}
+      - 0.0.0.0:${MONGOEXPRESS_LOCAL_PORT}:${MONGOEXPRESS_DOCKER_PORT}
 
 volumes:
   db:
