@@ -2,16 +2,16 @@ version: '3.8'
 
 services:
   mongo:
-    image: mongo
+    image: mongodb/mongodb-community-server
     restart: unless-stopped
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGODB_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGODB_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
       - MONGO_INITDB_DATABASE=${MONGODB_DATABASE}
     ports:
       - ${MONGODB_LOCAL_PORT}:${MONGODB_DOCKER_PORT}
     volumes:
-      - ~/mongodb-dockerfile/config:/etc/mongo/
+      - ./config:/etc/mongo/
       - db:/data/db
     command: ["mongod", "--config", "/etc/mongo/mongod.conf"]
   mongo-express:
