@@ -32,3 +32,14 @@ Most of the normal tools will work, although their usage might be a little convo
 ```sh
 $ docker exec some-mongo sh -c 'exec mongodump -d <database_name> --archive' > /some/path/on/your/host/all-collections.archive
 ```
+
+# Create user
+
+```sh
+mongosh mongodb://admin:test123@localhost:27017/admin
+```
+
+```sh
+db.createUser({user:"test", pwd:"test123", roles: [ "readWrite", "dbAdmin" ]});
+show users;
+```
